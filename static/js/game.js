@@ -34,7 +34,7 @@ const Game = {
 
         const clearButton = document.getElementById('btn-clear');
         clearButton.addEventListener('click', () => {
-            this.resetCharacter();
+            this.clearAll();
         });
 
         const backButton = document.getElementById('btn-back');
@@ -144,7 +144,11 @@ const Game = {
         } else if (result.type === 'wall' || result.type === 'obstacle') {
             this.showErrorMessage();
             setTimeout(() => {
-                this.resetCharacter();
+                this.resetCharacterPosition();
+            }, 2000);
+        } else if (result.type === 'incomplete') {
+            setTimeout(() => {
+                this.resetCharacterPosition();
             }, 2000);
         } else {
             this.enableControls();
@@ -177,7 +181,7 @@ const Game = {
         }, 3000);
     },
 
-    resetCharacter() {
+    resetCharacterPosition() {
         this.character = {
             x: this.maze.start.x,
             y: this.maze.start.y
@@ -189,8 +193,12 @@ const Game = {
             0
         );
 
-        InstructionManager.clear();
         this.enableControls();
+    },
+
+    clearAll() {
+        this.resetCharacterPosition();
+        InstructionManager.clear();
     },
 
     disableControls() {
