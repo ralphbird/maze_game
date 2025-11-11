@@ -44,7 +44,7 @@ const Game = {
 
         const newMazeButton = document.getElementById('btn-new-maze');
         newMazeButton.addEventListener('click', () => {
-            this.showDifficultySelector();
+            this.startNewGame(this.difficulty);
         });
     },
 
@@ -109,6 +109,7 @@ const Game = {
 
             document.getElementById('maze-container').style.display = 'flex';
             document.getElementById('btn-new-maze').style.display = 'none';
+            this.enableControls();
         } catch (error) {
             console.error('Error loading maze:', error);
             alert('Failed to load maze. Please try again.');
