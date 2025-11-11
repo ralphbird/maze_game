@@ -50,7 +50,16 @@ const Game = {
 
     setupKeyboardControls() {
         document.addEventListener('keydown', (e) => {
-            if (this.isExecuting || !this.maze) return;
+            if (!this.maze) {
+                if (['1', '2', '3', '4'].includes(e.key)) {
+                    e.preventDefault();
+                    const difficulty = parseInt(e.key);
+                    this.startNewGame(difficulty);
+                }
+                return;
+            }
+
+            if (this.isExecuting) return;
 
             switch(e.key) {
                 case 'ArrowUp':
