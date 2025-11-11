@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Labirinto - Aprenda Programação!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="seaweed seaweed-1">🌿</div>
+    <div class="seaweed seaweed-2">🌿</div>
+    <div class="seaweed seaweed-3">🌿</div>
+    <div class="seaweed seaweed-4">🌿</div>
+    <div class="seaweed seaweed-5">🌿</div>
+    <div class="coral-left">🪸</div>
+    <div class="coral-right">🐚</div>
+
+    <div class="container">
+        <div class="game-area">
+            <div id="difficulty-selector" class="difficulty-selector">
+                <button class="difficulty-btn" data-difficulty="1" aria-label="Fácil - labirinto 4x4">⭐</button>
+                <button class="difficulty-btn" data-difficulty="2" aria-label="Médio - labirinto 5x5">⭐⭐</button>
+                <button class="difficulty-btn" data-difficulty="3" aria-label="Difícil - labirinto 6x6">⭐⭐⭐</button>
+                <button class="difficulty-btn" data-difficulty="4" aria-label="Expert - labirinto 7x7">⭐⭐⭐⭐</button>
+            </div>
+
+            <div id="maze-container" class="maze-container" style="display: none;">
+                <div id="maze-grid" class="maze-grid"></div>
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none;">
+                <div class="sad-face">😢</div>
+            </div>
+
+            <div id="success-message" class="success-message" style="display: none;">
+                <div class="happy-face">🎉</div>
+            </div>
+        </div>
+
+        <div class="controls-area">
+            <div class="instruction-buttons">
+                <button id="btn-up" class="instruction-btn" aria-label="Mover para cima">
+                    <span class="arrow">↑</span>
+                </button>
+                <button id="btn-down" class="instruction-btn" aria-label="Mover para baixo">
+                    <span class="arrow">↓</span>
+                </button>
+                <button id="btn-left" class="instruction-btn" aria-label="Mover para esquerda">
+                    <span class="arrow">←</span>
+                </button>
+                <button id="btn-right" class="instruction-btn" aria-label="Mover para direita">
+                    <span class="arrow">→</span>
+                </button>
+            </div>
+
+            <div id="instruction-queue" class="instruction-queue" aria-label="Sequência de instruções"></div>
+
+            <div class="action-buttons">
+                <button id="btn-clear" class="action-btn clear-btn" aria-label="Limpar todas as instruções">🗑️ Limpar</button>
+                <button id="btn-go" class="action-btn go-btn" aria-label="Executar instruções">▶️ Vai!</button>
+                <button id="btn-back" class="action-btn back-btn" aria-label="Voltar para seleção de dificuldade">⬅️ Voltar</button>
+                <button id="btn-new-maze" class="action-btn new-maze-btn" style="display: none;" aria-label="Gerar novo labirinto">🔄 Novo Labirinto</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="{{ url_for('static', filename='js/maze.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/instructions.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/animator.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
