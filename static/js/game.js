@@ -10,6 +10,7 @@ const Game = {
     async init() {
         MazeRenderer.init();
         InstructionManager.init();
+        AudioManager.init();
 
         this.setupDifficultySelector();
         this.setupGameButtons();
@@ -170,6 +171,7 @@ const Game = {
         errorMsg.style.display = 'block';
 
         MazeRenderer.addCharacterClass('error');
+        AudioManager.playErrorSound();
 
         setTimeout(() => {
             errorMsg.style.display = 'none';
@@ -182,6 +184,7 @@ const Game = {
         successMsg.style.display = 'block';
 
         MazeRenderer.addCharacterClass('success');
+        AudioManager.playSuccessSound();
 
         document.getElementById('btn-new-maze').style.display = 'block';
 

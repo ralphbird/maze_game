@@ -28,6 +28,7 @@ const Animator = {
             if (validMove === true) {
                 currentX = nextX;
                 currentY = nextY;
+                AudioManager.playMoveSound();
                 MazeRenderer.updateCharacter(currentX, currentY, 0);
                 await this.wait(this.animationDelay);
             } else {
