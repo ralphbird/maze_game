@@ -26,12 +26,13 @@ class TestMazeGenerator:
         assert "start" in maze_data
         assert "goal" in maze_data
 
-    def test_start_position_is_origin(self):
-        """Test that start position is at (0, 0)."""
-        maze_data = generate_maze(5)
+    def test_start_position_is_bottom_right(self):
+        """Test that start position is at bottom-right corner."""
+        size = 5
+        maze_data = generate_maze(size)
 
-        assert maze_data["start"]["x"] == 0
-        assert maze_data["start"]["y"] == 0
+        assert maze_data["start"]["x"] == size - 1
+        assert maze_data["start"]["y"] == size - 1
 
     def test_start_is_path_not_wall(self):
         """Test that start position is a path, not a wall."""
