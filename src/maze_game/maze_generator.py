@@ -22,7 +22,9 @@ def generate_maze(size: int) -> dict:
     start = {"x": size - 1, "y": size - 1}
 
     goal_candidates = [
-        (x, y) for x in range(size) for y in range(size)
+        (x, y)
+        for x in range(size)
+        for y in range(size)
         if maze[y][x] == 0 and abs(x - start["x"]) + abs(y - start["y"]) >= 4
     ]
 
@@ -72,11 +74,7 @@ def _create_maze_dfs(size: int) -> list[list[int]]:
         for dx, dy in directions:
             next_x, next_y = current_x + dx, current_y + dy
 
-            if (
-                0 <= next_x < size
-                and 0 <= next_y < size
-                and (next_x, next_y) not in visited
-            ):
+            if 0 <= next_x < size and 0 <= next_y < size and (next_x, next_y) not in visited:
                 maze[next_y][next_x] = 0
                 visited.add((next_x, next_y))
                 stack.append((next_x, next_y))
@@ -138,7 +136,9 @@ def _place_obstacles(
     obstacle_types = ["🦈", "🪨", "🪸"]
 
     available_positions = [
-        (x, y) for x in range(size) for y in range(size)
+        (x, y)
+        for x in range(size)
+        for y in range(size)
         if maze[y][x] == 0
         and (x, y) != (start["x"], start["y"])
         and (x, y) != (goal["x"], goal["y"])
@@ -200,9 +200,7 @@ def _is_solvable_with_obstacles(
     return False
 
 
-def _is_solvable(
-    maze: list[list[int]], start: dict[str, int], goal: dict[str, int]
-) -> bool:
+def _is_solvable(maze: list[list[int]], start: dict[str, int], goal: dict[str, int]) -> bool:
     """Check if there's a path from start to goal using BFS.
 
     Args:

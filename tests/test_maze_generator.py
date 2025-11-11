@@ -84,12 +84,8 @@ class TestMazeGenerator:
         small_maze = generate_maze(5)
         large_maze = generate_maze(10)
 
-        small_paths = sum(
-            cell == 0 for row in small_maze["grid"] for cell in row
-        )
-        large_paths = sum(
-            cell == 0 for row in large_maze["grid"] for cell in row
-        )
+        small_paths = sum(cell == 0 for row in small_maze["grid"] for cell in row)
+        large_paths = sum(cell == 0 for row in large_maze["grid"] for cell in row)
 
         assert large_paths > small_paths
 

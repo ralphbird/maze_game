@@ -20,30 +20,33 @@ A visual, interactive maze game designed to teach programming basics to 6-year-o
 ## Installation
 
 1. Install asdf and required plugins:
-```bash
-asdf plugin add python
-asdf plugin add uv
-```
+
+   ```bash
+   asdf plugin add python
+   asdf plugin add uv
+   ```
 
 2. Install the versions specified in `.tool-versions`:
-```bash
-asdf install
-```
+
+   ```bash
+   asdf install
+   ```
 
 3. Install project dependencies:
-```bash
-uv sync --all-extras
-```
+
+   ```bash
+   uv sync --all-extras
+   ```
 
 ## Running the Application
 
 Start the Flask development server:
 
-```bash
-uv run python -m maze_game.app
-```
+   ```bash
+   uv run python -m maze_game.app
+   ```
 
-The game will be available at: http://localhost:5001
+The game will be available at: <http://localhost:5001>
 
 ## How to Play
 
@@ -77,7 +80,7 @@ uv run ruff format .
 
 ## Project Structure
 
-```
+```text
 maze_game/
 ├── src/maze_game/          # Python backend
 │   ├── app.py             # Flask application
@@ -93,6 +96,7 @@ maze_game/
 ## Architecture
 
 The game uses:
+
 - **Backend**: Flask (Python) for serving the app and generating mazes
 - **Frontend**: Vanilla JavaScript for game logic
 - **Maze Generation**: Depth-first search algorithm with solvability verification
@@ -103,6 +107,7 @@ See `claude_plans/architecture.md` for detailed technical documentation.
 ## Educational Goals
 
 This game introduces fundamental programming concepts:
+
 - **Sequencing** - Instructions execute in order
 - **Commands** - Each instruction performs a specific action
 - **Debugging** - Trial and error to find working solution
